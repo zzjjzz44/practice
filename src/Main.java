@@ -28,7 +28,7 @@ public class Main {
     e.address(e.word);
     int[][] cc=e.getA(e.a);
     int sum=e.distance(cc);
-    System.out.println("单词的距离为："+sum);
+    System.out.println("单词双指输入距离为："+sum);
 
 }
 }

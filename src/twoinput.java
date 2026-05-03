@@ -24,20 +24,21 @@ public class twoinput {
                 }
             }
         }
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-               System.out.print(a[i][j] + " ");
-           }
-           System.out.println();
-       }
+//        for (int i = 0; i < a.length; i++) {
+//            for (int j = 0; j < a[i].length; j++) {
+//               System.out.print(a[i][j] + " ");
+//           }
+//           System.out.println();
+//       }
     }
 
     int[][] getA(int[][] a) {
         int[][] b=new int[word.length()][word.length()];
         for(int i=0;i<a.length;i++){
-            for (int j=0;j<a.length;j++){
+            for (int j=0;j<a[i].length;j++){
                 if(a[i][j]==1){
                 points.add(new coordinate(i,j));
+//                System.out.println(i+" "+j);
                 }
             }
         }
@@ -60,8 +61,8 @@ public class twoinput {
 
    int distance(int[][] b) {
         int m=0;int sum=0;
-       for (int i = 0; i < word.length(); i++) {
-           edges.add(new closedge(1, b[0][i]));
+       for (int i = 1; i < b.length; i++) {
+           edges.add(new closedge(0, b[0][i]));
        }
        for (int i = 0; i < edges.size(); i++) {
            int max = 10;
@@ -71,17 +72,23 @@ public class twoinput {
                    max = edges.get(j).weight;
                    k = j;
                }
-           }
+           }System.out.printf("选择边%d-%d，权值为%d\n",k+1,edges.get(k).v,edges.get(k).weight);
+
            if (edges.get(k).weight > m) {
                m = edges.get(k).weight;
            }
+           System.out.println(edges.get(k).weight);
            sum = sum + edges.get(k).weight;
-           System.out.println(sum);
+
            edges.get(k).weight=0;
            for (int j = 0; j < edges.size(); j++) {
-               if (b[k+1][j]<edges.get(j).weight) {
-                   edges.get(j).weight = b[k+1][j];
-                   edges.get(j).v=k+1;
+               for(int l=0;l<b.length;l++){
+
+                          if (b[l][k+1]<edges.get(j).weight&&b[l][k+1]!=0) {
+                            edges.get(j).weight = b[k+1][l];
+                            edges.get(j).v=k+1;
+                          }
+
                }
            }
        }

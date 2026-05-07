@@ -24,11 +24,12 @@ public class Main {
         int mm=d.cz1();
         System.out.println("最长连续子序列的长度为："+mm);*/
     twoinput e=new twoinput();
-    e.sl();
-    e.address(e.word);
-    int[][] cc=e.getA(e.a);
-    int sum=e.distance(cc);
-    System.out.println("单词双指输入距离为："+sum);
-
+//    e.sl();
+//    e.address(e.word);
+//    int[][] cc=e.getA(e.a);
+//    int sum=e.distance(cc);
+//    System.out.println("单词双指输入距离为："+sum);
+    ArraySum f=new ArraySum(1,2);
+    f.screen();
 }
 }
